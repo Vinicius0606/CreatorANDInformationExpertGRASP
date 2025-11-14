@@ -9,6 +9,18 @@ package trabalhopoo.creatorandinformationexpertgrasp;
  * @author ruben
  */
 
+// -----------------------------------------------------------------------------
+/**
+ * Padrão GRASP aplicado: Information Expert.
+ *
+ * A classe Livro é o "especialista em informação" sobre:
+ * - título, autor, data de publicação, disponibilidade.
+ *
+ * Decisões sobre disponibilidade do livro (se pode ou não ser emprestado)
+ * fazem sentido aqui, pois é a classe que contém essa informação.
+ */
+// -----------------------------------------------------------------------------
+
 import java.time.LocalDate;
 
 public class Livro {
@@ -64,5 +76,11 @@ public class Livro {
         this.disponivel = disponivel;
     }
     
-    
+    public void indisponibilizar() { 
+        this.disponivel = false; 
+    }
+
+    public void disponibilizar() { 
+        this.disponivel = true; 
+    }
 }
