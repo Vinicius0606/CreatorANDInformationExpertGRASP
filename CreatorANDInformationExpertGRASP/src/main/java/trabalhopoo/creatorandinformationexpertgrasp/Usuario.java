@@ -8,21 +8,33 @@ package trabalhopoo.creatorandinformationexpertgrasp;
  *
  * @author ruben
  */
+
+// -----------------------------------------------------------------------------
+/*
+ * Padrão GRASP aplicado: Information Expert.
+ *
+ * A classe Usuario é o "especialista em informação" sobre:
+ * - nome, cpf, quantidade de livros emprestados e limite de livros.
+ *
+ * Qualquer decisão relacionada ao limite de livros de um usuário 
+ * deve usar os dados que estão aqui, porque o Usuario é quem 
+ * contém essa informação.
+ */
+// -----------------------------------------------------------------------------
+
 public class Usuario {
     
     private String nome;
     private String cpf;
     private int qtdLivros;
     private int limiteLivros;
-    private boolean pendenteAtraso;
     
-    public Usuario(String nome, String cpf, int qtdLivros, int limiteLivros, boolean pendenteAtraso){
+    public Usuario(String nome, String cpf, int qtdLivros, int limiteLivros){
         
         this.nome = nome;
         this.cpf = cpf;
         this.qtdLivros = qtdLivros;
         this.limiteLivros = limiteLivros;
-        this.pendenteAtraso = pendenteAtraso;
     }
     
     public void verInformacoes(){
@@ -64,14 +76,8 @@ public class Usuario {
     public void setLimiteLivros(int limiteLivros) {
         this.limiteLivros = limiteLivros;
     }
-
-    public boolean isPendenteAtraso() {
-        return pendenteAtraso;
-    }
-
-    public void setPendenteAtraso(boolean pendenteAtraso) {
-        this.pendenteAtraso = pendenteAtraso;
-    }
     
-    
+    public boolean podePegar() {
+        return qtdLivros < limiteLivros;
+    }
 }
